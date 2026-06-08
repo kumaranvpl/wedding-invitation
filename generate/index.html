@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generate Invitation — Amrutha &amp; Kumaran</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=EB+Garamond:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <form class="gen" id="gen-form">
+      <h1 class="gen__title">Personalize an invitation</h1>
+      <p class="gen__subtitle">Enter the guest's name to open their invitation.</p>
+      <label class="gen__label" for="gen-name">Guest name</label>
+      <input
+        class="gen__input"
+        id="gen-name"
+        name="name"
+        type="text"
+        placeholder="e.g. Mahandril Alagusabai"
+        autocomplete="off"
+        autofocus
+      />
+      <button class="gen__submit" type="submit">Open invitation →</button>
+      <p class="gen__hint">Takes you to the personalized invitation.</p>
+    </form>
+
+    <script type="module" src="/src/generate.js"></script>
+  </body>
+</html>

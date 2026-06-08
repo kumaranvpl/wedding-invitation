@@ -1,0 +1,342 @@
+:root {
+  --cream-1: #fbf6ec;
+  --cream-2: #f5ecda;
+  --ink: #4a3b30;
+  --ink-soft: #7a6757;
+  --magenta: #c0286b;
+  --magenta-soft: #d9a3bd;
+  --marigold: #e8a01a;
+  --lotus: #ec86b1;
+  --lotus-deep: #d65f93;
+  --card-max: 640px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 18%, rgba(120, 70, 40, 0.05) 0 1.5px, transparent 1.6px) 0 0 / 28px 28px,
+    radial-gradient(circle at 60% 55%, rgba(120, 70, 40, 0.04) 0 1.5px, transparent 1.6px) 14px 14px / 34px 34px,
+    linear-gradient(160deg, var(--cream-1) 0%, var(--cream-2) 100%);
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+/* ---------- Invitation card ---------- */
+.card {
+  position: relative;
+  width: 100%;
+  max-width: var(--card-max);
+  background:
+    radial-gradient(circle at 18% 22%, rgba(120, 70, 40, 0.04) 0 1.5px, transparent 1.6px) 0 0 / 26px 26px,
+    linear-gradient(165deg, #fffdf8 0%, #fbf4e6 100%);
+  border: 1px solid #ece0cb;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(120, 60, 40, 0.14);
+  padding: 56px 40px 48px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card__lotus {
+  position: absolute;
+  width: 130px;
+  height: auto;
+  pointer-events: none;
+  opacity: 0.95;
+}
+.card__lotus--tl {
+  top: -18px;
+  left: -22px;
+  transform: rotate(-12deg);
+}
+.card__lotus--br {
+  bottom: -22px;
+  right: -24px;
+  transform: rotate(168deg);
+}
+.card__garland {
+  position: absolute;
+  top: 0;
+  right: 28px;
+  width: 56px;
+  height: auto;
+  pointer-events: none;
+}
+
+.greeting {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: clamp(20px, 5vw, 28px);
+  color: var(--magenta);
+  margin: 0 0 18px;
+  font-weight: 500;
+}
+
+.intro {
+  font-size: clamp(14px, 3.6vw, 17px);
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin: 0 auto 14px;
+  max-width: 30ch;
+  line-height: 1.6;
+}
+
+.names {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: clamp(46px, 13vw, 84px);
+  line-height: 1.02;
+  color: var(--magenta);
+  margin: 6px 0 10px;
+}
+.names .amp {
+  color: var(--magenta-soft);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.subline {
+  font-size: clamp(13px, 3.4vw, 16px);
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin: 0 0 26px;
+}
+
+.photo {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  margin: 6px auto 26px;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 6px 18px rgba(120, 60, 40, 0.18);
+  background:
+    radial-gradient(circle at 50% 38%, #f7d488, #f0b13e 70%, #e89a23 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Floral fallback medallion when no couple photo is supplied */
+.photo--fallback {
+  font-size: 70px;
+  line-height: 1;
+}
+
+.events {
+  display: grid;
+  gap: 18px;
+  margin: 0 auto 26px;
+  max-width: 30ch;
+}
+.event__label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 13px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--lotus-deep);
+  margin-bottom: 2px;
+}
+.event__line {
+  font-size: clamp(15px, 4vw, 19px);
+  color: var(--ink);
+}
+.event__sub {
+  font-size: clamp(13px, 3.4vw, 15px);
+  color: var(--ink-soft);
+}
+
+.venue {
+  margin: 4px auto 24px;
+  max-width: 30ch;
+}
+.venue__name {
+  font-size: clamp(15px, 4vw, 19px);
+  color: var(--ink);
+  font-weight: 600;
+}
+.venue__place {
+  font-size: clamp(13px, 3.4vw, 15px);
+  color: var(--ink-soft);
+}
+
+.qr {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+}
+.qr canvas,
+.qr img {
+  width: 132px;
+  height: 132px;
+  border: 6px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px #e6dcc8;
+}
+.qr__caption {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ---------- Download control (bottom-left) ---------- */
+.download {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 30;
+}
+.download__btn {
+  font-family: inherit;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: var(--magenta);
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(192, 40, 107, 0.35);
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+.download__btn:hover {
+  background: var(--lotus-deep);
+  transform: translateY(-1px);
+}
+.download__menu {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid #ece0cb;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 8px 24px rgba(120, 60, 40, 0.2);
+  min-width: 160px;
+}
+.download.open .download__menu {
+  display: flex;
+}
+.download__item {
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.download__item:hover {
+  background: var(--cream-2);
+}
+
+/* ---------- Petal overlay ---------- */
+#petal-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #petal-overlay {
+    display: none;
+  }
+}
+
+/* ---------- Generator page ---------- */
+.gen {
+  width: 100%;
+  max-width: 460px;
+  background: linear-gradient(165deg, #fffdf8 0%, #fbf4e6 100%);
+  border: 1px solid #ece0cb;
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(120, 60, 40, 0.14);
+  padding: 40px 34px;
+  text-align: center;
+}
+.gen__title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  color: var(--magenta);
+  margin: 0 0 6px;
+}
+.gen__subtitle {
+  color: var(--ink-soft);
+  font-size: 15px;
+  margin: 0 0 26px;
+}
+.gen__label {
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+.gen__input {
+  width: 100%;
+  font-family: inherit;
+  font-size: 18px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid #e0d3bd;
+  border-radius: 12px;
+  padding: 13px 16px;
+  margin-bottom: 20px;
+}
+.gen__input:focus {
+  outline: none;
+  border-color: var(--magenta-soft);
+  box-shadow: 0 0 0 3px rgba(217, 163, 189, 0.3);
+}
+.gen__submit {
+  width: 100%;
+  font-family: inherit;
+  font-size: 17px;
+  color: #fff;
+  background: var(--magenta);
+  border: none;
+  border-radius: 999px;
+  padding: 14px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+.gen__submit:hover {
+  background: var(--lotus-deep);
+}
+.gen__hint {
+  margin-top: 18px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.gen__hint a {
+  color: var(--magenta);
+}

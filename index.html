@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amrutha &amp; Kumaran — Wedding Invitation</title>
+    <meta
+      name="description"
+      content="Together with our families, Amrutha & Kumaran joyfully invite you to celebrate their wedding."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="card" id="invitation-card">
+      <!-- Lotus accents -->
+      <svg class="card__lotus card__lotus--tl" viewBox="0 0 200 150" aria-hidden="true">
+        <defs>
+          <radialGradient id="lp" cx="50%" cy="80%" r="80%">
+            <stop offset="0%" stop-color="#fbe0ec" />
+            <stop offset="55%" stop-color="#ec86b1" />
+            <stop offset="100%" stop-color="#d65f93" />
+          </radialGradient>
+        </defs>
+        <g transform="translate(100 130)">
+          <path d="M0 0 C-14 -70 14 -70 0 0Z" fill="url(#lp)" />
+          <path d="M0 0 C-50 -56 -30 -78 0 0Z" fill="url(#lp)" opacity="0.92" />
+          <path d="M0 0 C50 -56 30 -78 0 0Z" fill="url(#lp)" opacity="0.92" />
+          <path d="M0 0 C-86 -34 -78 -64 0 0Z" fill="url(#lp)" opacity="0.82" />
+          <path d="M0 0 C86 -34 78 -64 0 0Z" fill="url(#lp)" opacity="0.82" />
+          <path d="M0 0 C-110 2 -96 -28 0 0Z" fill="url(#lp)" opacity="0.7" />
+          <path d="M0 0 C110 2 96 -28 0 0Z" fill="url(#lp)" opacity="0.7" />
+          <ellipse cx="0" cy="-6" rx="9" ry="14" fill="#f6c64b" />
+        </g>
+      </svg>
+      <svg class="card__lotus card__lotus--br" viewBox="0 0 200 150" aria-hidden="true">
+        <g transform="translate(100 130)">
+          <path d="M0 0 C-14 -70 14 -70 0 0Z" fill="url(#lp)" />
+          <path d="M0 0 C-50 -56 -30 -78 0 0Z" fill="url(#lp)" opacity="0.92" />
+          <path d="M0 0 C50 -56 30 -78 0 0Z" fill="url(#lp)" opacity="0.92" />
+          <path d="M0 0 C-86 -34 -78 -64 0 0Z" fill="url(#lp)" opacity="0.82" />
+          <path d="M0 0 C86 -34 78 -64 0 0Z" fill="url(#lp)" opacity="0.82" />
+          <path d="M0 0 C-110 2 -96 -28 0 0Z" fill="url(#lp)" opacity="0.7" />
+          <path d="M0 0 C110 2 96 -28 0 0Z" fill="url(#lp)" opacity="0.7" />
+          <ellipse cx="0" cy="-6" rx="9" ry="14" fill="#f6c64b" />
+        </g>
+      </svg>
+      <!-- Marigold garland -->
+      <svg class="card__garland" viewBox="0 0 60 240" aria-hidden="true">
+        <defs>
+          <radialGradient id="mg" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="#ffd35e" />
+            <stop offset="100%" stop-color="#e8870f" />
+          </radialGradient>
+        </defs>
+        <g fill="url(#mg)">
+          <circle cx="18" cy="14" r="11" />
+          <circle cx="40" cy="26" r="11" />
+          <circle cx="22" cy="44" r="11" />
+          <circle cx="42" cy="62" r="11" />
+          <circle cx="20" cy="80" r="11" />
+          <circle cx="40" cy="98" r="11" />
+          <circle cx="22" cy="116" r="11" />
+          <circle cx="42" cy="134" r="11" />
+          <circle cx="20" cy="152" r="11" />
+          <circle cx="40" cy="170" r="11" />
+          <circle cx="22" cy="188" r="11" />
+          <circle cx="42" cy="206" r="11" />
+          <circle cx="24" cy="224" r="10" />
+        </g>
+      </svg>
+
+      <p class="greeting" id="greeting">Hello,</p>
+      <p class="intro">Together with our families, we joyfully invite you to celebrate the wedding of</p>
+      <h1 class="names">Amrutha <span class="amp">&amp;</span> Kumaran</h1>
+      <p class="subline">as we begin a beautiful journey together</p>
+
+      <img class="photo" id="couple-photo" alt="Amrutha and Kumaran" />
+
+      <div class="events">
+        <div class="event">
+          <div class="event__label">Wedding</div>
+          <div class="event__line">Sunday, 13 September 2026</div>
+          <div class="event__sub">8:00 AM – 9:30 AM</div>
+        </div>
+        <div class="event">
+          <div class="event__label">Reception</div>
+          <div class="event__line">Saturday, 12 September 2026</div>
+          <div class="event__sub">6:30 PM onwards</div>
+        </div>
+      </div>
+
+      <div class="venue">
+        <div class="venue__name">Kalyaani Thirumana Mandapam</div>
+        <div class="venue__place">Valasaravakkam, Chennai</div>
+      </div>
+
+      <div class="qr">
+        <div id="qr-target"></div>
+        <div class="qr__caption">Scan for location</div>
+      </div>
+    </main>
+
+    <div class="download" id="download">
+      <div class="download__menu">
+        <button class="download__item" data-format="png" type="button">Download PNG</button>
+        <button class="download__item" data-format="pdf" type="button">Download PDF</button>
+      </div>
+      <button class="download__btn" id="download-toggle" type="button">⬇ Download invitation</button>
+    </div>
+
+    <script type="module" src="/src/invitation.js"></script>
+  </body>
+</html>
