@@ -1,7 +1,14 @@
+import garlandUrl from "./decor/garland.svg";
+import lotusUrl from "./decor/lotus.svg";
 import { decodeName } from "./encode.js";
 import { downloadPdf, downloadPng } from "./download.js";
 import { initPetals } from "./petals.js";
 import { renderQr } from "./qr.js";
+
+// --- Decorations (as <img> so they survive the html2canvas export) ---
+document.getElementById("lotus-tl").src = lotusUrl;
+document.getElementById("lotus-br").src = lotusUrl;
+document.getElementById("garland").src = garlandUrl;
 
 const MAPS_URL = "https://maps.app.goo.gl/LKoMtmw6nNMmhF9T8";
 const PNG_NAME = "amrutha-kumaran-wedding-invitation.png";
@@ -14,14 +21,19 @@ document.getElementById("greeting").textContent = name
   : "Hello,";
 
 // --- Couple photo with floral fallback ---
+// Set as a background-image (not an <img>) so cover-cropping survives the
+// html2canvas export — object-fit on <img> is ignored there and stretches it.
 const photo = document.getElementById("couple-photo");
-photo.addEventListener("error", () => {
-  const medallion = document.createElement("div");
-  medallion.className = "photo photo--fallback";
-  medallion.textContent = "🪷";
-  photo.replaceWith(medallion);
-});
-photo.src = `${import.meta.env.BASE_URL}assets/couple.jpg`;
+const photoSrc = `${import.meta.env.BASE_URL}assets/couple.jpg`;
+const probe = new Image();
+probe.onload = () => {
+  photo.style.backgroundImage = `url("${photoSrc}")`;
+};
+probe.onerror = () => {
+  photo.classList.add("photo--fallback");
+  photo.textContent = "🪷";
+};
+probe.src = photoSrc;
 
 // --- QR to the venue location ---
 renderQr(document.getElementById("qr-target"), MAPS_URL);
