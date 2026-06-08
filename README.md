@@ -46,11 +46,21 @@ on every push to `main`.
 **One-time setup:** in the repo, go to **Settings → Pages → Build and deployment →
 Source** and select **GitHub Actions**.
 
-The default project-page URL is `https://<your-user>.github.io/wedding-invitation/`.
+## Hosting at the site root
 
-## Custom domain (later)
+The site is built with `base: "/"` (see `vite.config.js`), so the invitation lives
+at `/`, not `/wedding-invitation/`. This is correct for:
 
-1. In `vite.config.js`, change `base: "/wedding-invitation/"` to `base: "/"`.
-2. Create `public/CNAME` containing your domain (e.g. `amrutha-kumaran.com`).
-3. Configure the domain's DNS and set it under **Settings → Pages → Custom domain**.
-4. Push to `main` — the site redeploys at the custom domain.
+- a **custom domain** (recommended — you plan to add one), or
+- a **user/org page** repo named `<your-user>.github.io`.
+
+It is **not** correct for a bare project page served at
+`https://<your-user>.github.io/wedding-invitation/` — there the asset paths would
+break. If you deploy that way before setting up a custom domain, change `base` back
+to `"/wedding-invitation/"` temporarily.
+
+## Custom domain
+
+1. Create `public/CNAME` containing your domain (e.g. `amrutha-kumaran.com`).
+2. Configure the domain's DNS and set it under **Settings → Pages → Custom domain**.
+3. Push to `main` — the site redeploys at the custom domain (base is already `/`).

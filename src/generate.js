@@ -6,7 +6,7 @@ const input = document.getElementById("gen-name");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const name = input.value.trim();
-  const base = import.meta.env.BASE_URL; // e.g. "/wedding-invitation/"
+  const base = import.meta.env.BASE_URL; // "/"
   const url = name ? `${base}?g=${encodeName(name)}` : base;
-  window.open(url, "_blank", "noopener");
+  window.location.assign(url); // redirect to the home invitation
 });
