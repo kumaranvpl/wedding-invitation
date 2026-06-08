@@ -48,12 +48,16 @@ export async function downloadPng(el, filename) {
 export async function downloadPdf(el, filename) {
   const canvas = await capture(el);
   const { jsPDF } = await import("jspdf");
-  const img = canvas.toDataURL("image/png");
+  // Embed a JPEG, not a PNG. A lossless PNG of this ~1920px canvas produces a
+  // ~25 MB PDF; JPEG at high quality is a fraction of that with no visible loss
+  // on a photo/gradient invitation (and WhatsApp recompresses anyway).
+  const img = canvas.toDataURL("image/jpeg", 0.92);
   const pdf = new jsPDF({
     orientation: canvas.width > canvas.height ? "landscape" : "portrait",
     unit: "px",
     format: [canvas.width, canvas.height],
+    compress: true,
   });
-  pdf.addImage(img, "PNG", 0, 0, canvas.width, canvas.height);
+  pdf.addImage(img, "JPEG", 0, 0, canvas.width, canvas.height, undefined, "FAST");
   pdf.save(filename);
 }

@@ -159,12 +159,13 @@ body {
   max-width: 30ch;
 }
 .event__label {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 13px;
-  letter-spacing: 2.5px;
+  font-family: "EB Garamond", serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--lotus-deep);
-  margin-bottom: 2px;
+  color: var(--magenta);
+  margin-bottom: 4px;
 }
 .event__line {
   font-size: clamp(15px, 4vw, 19px);
